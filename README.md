@@ -7,6 +7,14 @@ For more info on the display components, see the [ESPHome display documentation]
 
 ## Usage
 To use the board with [ESPHome](https://esphome.io/), adjust your `.yaml` config:
+```yaml
+external_components:
+  - source: github://dabalroman/esphome-lilygo-t547plus_esphome-2025.11
+    components: ["t547"]
+```
+
+## Full example
+Make note how `platformio_options`, `libraries` and `esp32` are set up, these are important for the compilation stage.
 
 ```yaml
 esphome:
@@ -31,10 +39,39 @@ esphome:
 
   libraries:
     - SPI
-      
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "uji41VdMORB5966gRlVYEbBaC5LU9NZwHStB8j2d/nU="
+
+ota:
+  - platform: esphome
+    password: "4ab30fdd89bd61087359d5eebf85d296"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Lilygo Fallback Hotspot"
+    password: "zYQIOsSr8spF"
+
+captive_portal:
+
 external_components:
   - source: github://dabalroman/esphome-lilygo-t547plus_esphome-2025.11
     components: ["t547"]
+
 
 display:
   - platform: t547
