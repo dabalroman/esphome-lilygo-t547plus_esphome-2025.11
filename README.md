@@ -5,13 +5,18 @@ For more info on the display components, see the [ESPHome display documentation]
 **(Do not confuse it with the original ESP32-based Lilygo T5 4.7 board.)**
 
 ![](readme-files/full_setup.jpg)
-<p style='text-align: center'><b>Image of full setup config</b> <br/> Forgive the "dusty" marks, mine display is quite burned-out. <br/> This will also happen to your display, so avoid frequent updates and rendering the same stuff over and over.</p>
+<p align='center'><b>Image of full setup config</b></p>
 
+
+> [!TIP]
+> The "dusty" marks on the image above are signs of e-ink screen fatigue.  
+> This will also happen to your display, so avoid frequent updates and rendering the same stuff over and over.
 
 ## Contributions
-- Huge thanks to @hbast for ESP-IDF 5.4.2+ Compatibility!
+- Huge thanks to [@hbast](https://github.com/hbast) for ESP-IDF 5.4.2+ Compatibility!
 
-## Usage (TLDR;)
+
+## Usage (TLDR)
 To use the board with [ESPHome](https://esphome.io/), adjust your `.yaml` config:
 Make note how `platformio_options`, `libraries`, `esp32`, `sdkconfig_options` and `external_components` are set up in [basic setup](#basic-setup) below, these are important for the compilation stage.
 Make sure to `Clean build files` if you're editing your old `.yaml` configs. 
@@ -21,6 +26,7 @@ external_components:
   - source: github://dabalroman/esphome-lilygo-t547plus_esphome-2025.11
     components: ["t547"]
 ```
+
 
 ## Usage (step by step)
 1. Open the esphome dashboard.
@@ -32,9 +38,9 @@ external_components:
 7. Flash the [basic setup](basic_setup.yaml) or [full setup](full_setup.yaml) via OTA to confirm the connection does work.
 8. Now you can do whatever you want :)
 
-### Oh no! Compilation / linking failed!
-EspHome aggressively uses cache. Try using `Clean build files` on device card before `Install`.  
-Does not work with clear cache? Now that's a bummer...
+> [!IMPORTANT]
+> EspHome aggressively uses cache. 
+> Try using `Clean build files` on device card before `Install` if compilation fails.
 
 ## Basic setup
 Basic setup listing is available in [basic_setup.yaml](basic_setup.yaml) file.  
@@ -141,9 +147,10 @@ display:
       it.printf(w / 2, h / 2 + 10, id(font_subtitle), TextAlign::CENTER, "Hello world!");
 ```
 
+
 ## Z-lib
 This branch does not support z-lib compressed fonts.
 
-## Discussion
 
+## Discussion
 https://github.com/esphome/feature-requests/issues/1960
