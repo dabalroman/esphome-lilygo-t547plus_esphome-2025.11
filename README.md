@@ -1,13 +1,15 @@
 This repository contains a Display component for [ESPHome](https://esphome.io/) 2025.11+ 
 to support the ESP32-S3 [LILYGO T5 4.7" Plus E-paper display](https://www.lilygo.cc/products/t5-4-7-inch-e-paper-v2-3).
+For more info on the display components, see the [ESPHome display documentation](https://esphome.io/#display-components)
 
 **(Do not confuse it with the original ESP32-based Lilygo T5 4.7 board.)**
 
-For more info on the display components, see the [ESPHome display documentation](https://esphome.io/#display-components)
+![](readme-files/full_setup.jpg)
+<p style='text-align: center'><b>Image of full setup config</b> <br/> Forgive the "dusty" marks, mine display is quite burned-out. <br/> This will also happen to your display, so avoid frequent updates and rendering the same stuff over and over.</p>
+
 
 ## Contributions
 - Huge thanks to @hbast for ESP-IDF 5.4.2+ Compatibility!
-
 
 ## Usage (TLDR;)
 To use the board with [ESPHome](https://esphome.io/), adjust your `.yaml` config:
